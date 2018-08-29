@@ -30,8 +30,20 @@
 */
 
 //Code Here
+class Employee {
+  constructor (first_name, last_name, email, age){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+  }
 
-
+  makeWidget(){
+    return this.first_name + " " + this.last_name + " " + "Widget";
+  }
+}
+ new Employee();
+ newEmployee.makeWidget();
 
 ////////// PROBLEM 2 //////////
 
@@ -50,6 +62,31 @@
 */
 
 //Code Here
+
+//create a new class name Manager
+//takes in the class Employee in Manager
+//add addtional prop of reports
+    // create a reports property that is an array of other employees
+// create a funcation called hire that takes in employee as the parameter
+    // hire accepts a new employee and pushes it to the reports array
+// create a function called fire with index as the parameter
+    // removes employees from the reports array at the index passed in
+
+class Manager {
+  constructor (reports){
+    Object.assign(Employee)
+    this.reports = reports;
+    reports = [];
+  }
+    hire(){
+      reports.push(this.employee);
+    }
+    fire(index){
+      
+          
+    }
+}
+
 
 
 
