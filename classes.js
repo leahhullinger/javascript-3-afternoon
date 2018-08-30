@@ -71,26 +71,24 @@ class Employee {
     // removes employees from the reports array at the index passed in
 
 class Manager {
-   constructor (Employee, reports){
-    Object.assign(Manager,Employee)
-  //   this.first_name = first_name;
-  //   this.last_name = last_name;
-  //   this.email = email;
-  //   this.age = age;
+  constructor (first_name, last_name, email, age, reports = []){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email; 
+    this.age = age;
     this.reports = reports;
-  
   }
-    hire(Employee){
-      this.reports.push(new Employee)
-      return reports;
-    } 
-    fire(index){
-      delete reports[index];
-      }
-
-    }
+  makeWidget(){
+    return (this.first_name + " " + this.last_name + " " + "Widget");
+  }
   
-new Manager();
+  hire(employee){
+    this.reports.push(employee)
+  } 
+  fire(index){
+    this.reports.splice(index,1)
+  }
+}
 ////////// PROBLEM 3 //////////
 
 /*
@@ -114,7 +112,47 @@ new Manager();
 */
 
 //Code Here
-
+class ProgressiveManager {
+  constructor(
+    first_name, 
+    last_name, 
+    email, 
+    age, 
+    reports = [],
+    title = 'Not a manager',
+    bonus = 0,
+  ) {
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email; 
+    this.age = age;
+    this.reports = reports;
+    this.title = title;
+    this.bonus = bonus;
+    }
+  hire(employee){
+    this.reports.push(employee);
+    const num = this.reports.length
+    switch (true) {
+      case (num === 0):
+        return this.title = "Not a manager";
+      case (num > 0 && num <= 3):
+        return this.title = "Barely Manager";
+      case (num > 3 && num <= 10):
+        return this.title = "Mostly Manager";
+      case (num > 10 && num <= 50):
+        return this.title = "Manager";
+      case (num > 50 && num <= 100):
+        return this.title = "Manager Plus";
+      case (num > 100):
+        return this.title = "Bestest Manager";
+    }
+  }
+  fire(index){
+    this.reports.splice(index,1)
+    this.bonus += 100;
+  } 
+}
 
 
 ////////// PROBLEM 4 - Black Diamond //////////
@@ -141,5 +179,24 @@ new Manager();
 */
 
 //Code Here
+class Machine {
+  constructor(){
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  makeWidgets(num){
+    this.widgets_made_count = this.widgets_made_count + num
+      const increase = num / 50
+    this.wear_and_tear_count = this.wear_and_tear_count + increase
+  }
 
-
+  fixMachine(){
+    this.needs_reboot = true;
+  }
+  reboot(){
+    return () => {
+      this.wear_and_tear_count -= 10; 
+    }
+  }
+}
