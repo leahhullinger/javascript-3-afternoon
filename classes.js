@@ -39,11 +39,9 @@ class Employee {
   }
 
   makeWidget(){
-    return this.first_name + " " + this.last_name + " " + "Widget";
+    return (this.first_name + " " + this.last_name + " " + "Widget");
   }
 }
- new Employee();
- newEmployee.makeWidget();
 
 ////////// PROBLEM 2 //////////
 
@@ -73,23 +71,26 @@ class Employee {
     // removes employees from the reports array at the index passed in
 
 class Manager {
-  constructor (reports){
-    Object.assign(Employee)
+   constructor (Employee, reports){
+    Object.assign(Manager,Employee)
+  //   this.first_name = first_name;
+  //   this.last_name = last_name;
+  //   this.email = email;
+  //   this.age = age;
     this.reports = reports;
-    reports = [];
+  
   }
-    hire(){
-      reports.push(this.employee);
-    }
+    hire(Employee){
+      this.reports.push(new Employee)
+      return reports;
+    } 
     fire(index){
-      
-          
+      delete reports[index];
+      }
+
     }
-}
-
-
-
-
+  
+new Manager();
 ////////// PROBLEM 3 //////////
 
 /*
