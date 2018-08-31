@@ -100,10 +100,13 @@ const ingredients = (object) => {
 */
 
 //Code Here
-// function largeNumbers({first, second, third}){
-//   const {}
+function largeNumbers( {first, second, third} ){
+  const smallestNumber = () => {
+    console.log(first,second,third)
+  }
 
-// }
+
+  }
 
 
 ////////// PROBLEM 6 //////////
