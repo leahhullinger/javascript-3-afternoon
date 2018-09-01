@@ -10,11 +10,11 @@
 
 // Do not edit the code below.
 var carDetails = {
-  color: 'red',
-  make: 'toyota',
-  model: 'tacoma',
+  color: "red",
+  make: "toyota",
+  model: "tacoma",
   year: 1994
-}
+};
 // Do not edit the code above.
 
 /*
@@ -22,8 +22,7 @@ var carDetails = {
 */
 
 //Code Here
-var {color,make, model, year} = carDetails;
-
+const { color, make, model, year } = carDetails;
 
 ////////// PROBLEM 2 //////////
 
@@ -34,14 +33,12 @@ var {color,make, model, year} = carDetails;
 */
 
 function greeting(person) {
-var {title, firstName, lastName} = person;
-  
+  const { title, firstName, lastName } = person;
+
   // Do not edit the code below.
-  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+  return "Hello, " + title + " " + firstName + " " + lastName + "!";
   // Do not edit the code above.
 }
-
-
 
 ////////// PROBLEM 3 //////////
 
@@ -53,17 +50,10 @@ var {title, firstName, lastName} = person;
   Sum up the values and return the total number.
 */
 
-function totalPopulation(object){
-  var {utah,california,texas,arizona} = object
-  return (utah + california + texas + arizona)
+function totalPopulation(object) {
+  var { utah, california, texas, arizona } = object;
+  return utah + california + texas + arizona;
 }
-
-
-
-
-
-
-
 
 ////////// PROBLEM 4 //////////
 
@@ -76,14 +66,12 @@ function totalPopulation(object){
 */
 
 //Code Here
-const ingredients = (object) => {
-  var newArray = []
-  var {carb, fat, protein} = object
-  newArray.push(carb,fat,protein)
+const ingredients = object => {
+  var newArray = [];
+  var { carb, fat, protein } = object;
+  newArray.push(carb, fat, protein);
   return newArray;
-
-}
-
+};
 
 ////////// PROBLEM 5 //////////
 
@@ -100,14 +88,9 @@ const ingredients = (object) => {
 */
 
 //Code Here
-function largeNumbers( {first, second, third} ){
-  const smallestNumber = () => {
-    console.log(first,second,third)
-  }
-
-
-  }
-
+function largeNumbers({ first, second, third }) {
+  return Math.min(first, second, third);
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -119,4 +102,12 @@ function largeNumbers( {first, second, third} ){
 
 //Code Here
 
-
+function numberGroups({ a, b, c }) {
+  if (a.length > b.length && a.length > c.length) {
+    return a;
+  } else if (b.length > a.length && b.length > c.length) {
+    return b;
+  } else {
+    return c;
+  }
+}
