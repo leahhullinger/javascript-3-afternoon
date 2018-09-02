@@ -11,27 +11,25 @@
   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
 */
 
-var values = {
-  one: 'These',
-  two: ' are',
-  three: ' the',
-  four: ' property',
-  five: ' values.'
-} 
+// var values = {
+//   one: 'These',
+//   two: ' are',
+//   three: ' the',
+//   four: ' property',
+//   five: ' values.'
+// }
 
-for(var key in values) {
-  console.log(values[key])
-}
+// for(var key in values) {
+//   console.log(values[key])
+// }
 
-/*
-  In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
-*/
+// /*
+//   In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
+// */
 
-for(var key in values) {
-  console.log(key)
-}
-
-
+// for(var key in values) {
+//   console.log(key)
+// }
 
 ////////// PROBLEM 1 //////////
 
@@ -39,11 +37,13 @@ for(var key in values) {
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-function showValues(values) {
-  for(var key in values)
-   return values[key]
+function showValues(obj) {
+  let string = "";
+  for (var key in obj) {
+    string += obj[key];
   }
-
+  return string;
+}
 ////////// PROBLEM 2 //////////
 
 /*
@@ -53,15 +53,17 @@ function showValues(values) {
 */
 
 //Code Here
-const greaterThan10 = (obj) => {
-  for(var key in obj){
-    if(obj[key] > 10){
-      return ({objkey]})
+function greaterThan10(obj) {
+  for (var key in obj) {
+    if (obj[key] > 10) {
+      obj[key] = 0;
+    } else {
+      obj[key];
     }
   }
-   return obj;
+  return obj;
 }
-
+//obj[key] > 10 ? 0 : obj[key]
 
 ////////// PROBLEM 3 //////////
 
@@ -72,13 +74,12 @@ const greaterThan10 = (obj) => {
 */
 
 //Code Here
-const double = (obj) => {
-  for(var key in obj){
-    return (obj[key] = key *= 2)
+function double(obj) {
+  for (var key in obj) {
+    obj[key] *= 2;
   }
-  console.log(obj[key])
+  return obj;
 }
-
 
 ////////// PROBLEM 4 //////////
 
@@ -91,9 +92,15 @@ const double = (obj) => {
 */
 
 //Code Here
-
-
-
+function secrets(obj) {
+  let secretString = "";
+  for (var key in obj) {
+    if (key.startsWith("sh")) {
+      secretString += obj[key];
+    }
+  }
+  return secretString;
+}
 /* 
   Sometimes it's needed to delete object properties. 
   All you need is the word delete before a reference to the object property value. 
@@ -112,8 +119,6 @@ const double = (obj) => {
 
 // console.log(deleteAllThethings)
 
-
-
 ////////// PROBLEM 5 //////////
 
 /*
@@ -122,18 +127,23 @@ const double = (obj) => {
 */
 
 //Code Here
-
-
-
+function removePassword(obj) {
+  for (var password in obj) {
+    delete obj.password;
+  }
+  return obj;
+}
 ////////// PROBLEM 6 //////////
 
 // Do not edit the code below.
-var deleteTheBigNumbers = {
+
+const deleteTheBigNumbers = {
   first: 10,
   second: 20,
   third: 110,
   fourth: 200
-}
+};
+
 // Do not edit the code above.
 
 /*
@@ -141,8 +151,11 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
-
+for (var props in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[props] > 100) {
+    delete deleteTheBigNumbers[props];
+  }
+}
 
 ////////// PROBLEM 7 //////////
 
@@ -154,9 +167,14 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
-
-
+function startsWithK(obj) {
+  for (var prop in obj) {
+    if (prop.startsWith("k")) {
+      delete obj[prop];
+    }
+  }
+  return obj;
+}
 ////////// PROBLEM 8 //////////
 
 /*
@@ -169,5 +187,11 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
-
+function hiddenTreasure(obj) {
+  for (var prop in obj) {
+    if (!obj[prop].includes("treasure")) {
+      delete obj[prop];
+    }
+  }
+  return obj;
+}
